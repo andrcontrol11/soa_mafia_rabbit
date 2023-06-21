@@ -11,3 +11,10 @@ docker-compose up
 pip install -r requirements.txt
 python3 client.py
 ```
+
+
+## Сборка
+```
+docker build -t andrcontrol/mafia_server_rabbit -f rabbit/Dockerfile .
+docker build -t andrcontrol/mafia_server2 .
+```

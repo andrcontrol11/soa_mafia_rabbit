@@ -75,6 +75,8 @@ class Client:
             print("После того, как все игроки будут готовы закончить обсуждение они должны ввести 'Ready'")
             self.chat()
             print("Проголосуйте за игрока, которого хотите казнить")
+        else:
+            self.chat()
         vote = self.vote()
         print("Идет голосование...")
         response = self.stub.SendVote(
@@ -242,6 +244,8 @@ class Client:
                     self.auto = True
                 self.day()
                 self.stub.Disconnect(mafia_pb2.Player(name=self.name, room_name=self.room_name))
+                self.rabbit_client.close()
+                self.rabbit_server.close()
                 break
             elif command == "PLAYERS":
                 print(self.players_list)
